@@ -77,7 +77,7 @@ func QuickSortRe(arr []int, left int, right int) {
 	// first we move the pivot to the left
 	arr[left], arr[mid] = arr[mid], arr[left]
 	var leftIndex, rightIndex, increaseLeft int = left, right, 0
-	// we use these indexes to go through the array and swap elements so that we reach our desired state;
+	// we use these indices to go through the array and swap elements so that we reach our desired state;
 	// the algorithm is ping-pong like; we start with our pivot on the left and compare leftIndex(the pivot's position for now) with the element at rightIndex
 	// as long as arr[leftIndex] <= arr[rightIndex], we know the pivot has elements higher than it to the right; as long as this happens, rightIndex-- cause we now they're good
 	// when we reach an arr[leftIndex] > arr[rightIndex], we've got a smaller element to the right; by swapping them, now our pivot is at the rightmost place where we still know for sure that everything to the right of it is higher; now we also change increaseLeft to 1 so we know that moving forward we're checking for elements at arr[leftIndex] who are higher than our pivot, and our pivot is at arr[rightIndex];
@@ -87,7 +87,7 @@ func QuickSortRe(arr []int, left int, right int) {
 			arr[leftIndex], arr[rightIndex] = arr[rightIndex], arr[leftIndex] // swap
 			increaseLeft = 1 - increaseLeft                                   // toggle "direction"
 		}
-		// the idea of having this toggle of "increaseLeft" is to avoid doing extra if checks for the direction; it's more efficient than having if-else where we increase/decrease our indexes in both the if and else clauses, but differently; though it's harder to get it at first
+		// the idea of having this toggle of "increaseLeft" is to avoid doing extra if checks for the direction; it's more efficient than having if-else where we increase/decrease our indices in both the if and else clauses, but differently; though it's harder to get it at first
 		leftIndex += increaseLeft
 		rightIndex -= 1 - increaseLeft
 	}
